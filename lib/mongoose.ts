@@ -1,16 +1,17 @@
 import mongoose from 'mongoose';
+require('dotenv').config();
 
 let isConnected = false;// Variable to track the connection status
 
 export const connectToDB = async () => {
   mongoose.set('strictQuery', true);
 
-  if(!"mongodb://localhost:27017/Project") return console.log('LOCAL HOSTs is not defined');
+  if(!process.env.MONGO_URL) return console.log('LOCAL HOSTs is not defined');
 
   if(isConnected) return console.log('=> using existing database connection');
 
   try {
-    await mongoose.connect("mongodb://localhost:27017/Project")
+    await mongoose.connect(process.env.MONGO_URL);
 
     isConnected = true;
 
