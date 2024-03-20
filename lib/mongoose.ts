@@ -1,5 +1,6 @@
+// require('dotenv').config();
+
 import mongoose from 'mongoose';
-require('dotenv').config();
 
 let isConnected = false;// Variable to track the connection status
 
