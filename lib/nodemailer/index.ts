@@ -26,10 +26,10 @@ export async function generateEmailBody(
 
   switch (type) {
     case Notification.WELCOME:
-      subject = `Welcome to Trackazon Tracking for ${shortenedTitle}`;
+      subject = `Welcome to Price Tracking for ${shortenedTitle}`;
       body = `
         <div>
-          <h2>Welcome to TrackazonNotify 🚀🔔</h2>
+          <h2>Welcome to TrackzonNotify 🚀</h2>
           <p>You are now tracking ${product.title}.</p>
           <p>Here's an example of how you'll receive updates:</p>
           <div style="border: 1px solid #ccc; padding: 10px; background-color: #f8f8f8;">
@@ -84,7 +84,7 @@ const transporter = nodemailer.createTransport({
   service: 'hotmail',
   port: 2525,
   auth: {
-    user: 'trackazonnotify@outlook.com',
+    user: 'trackzonnotiffy@outlook.com',
     pass: process.env.EMAIL_PASSWORD,
   },
   maxConnections: 1
@@ -92,7 +92,7 @@ const transporter = nodemailer.createTransport({
 
 export const sendEmail = async (emailContent: EmailContent, sendTo: string[]) => {
   const mailOptions = {
-    from: 'trackazonnotify@outlook.com',
+    from: 'trackzonnotiffy@outlook.com',
     to: sendTo,
     html: emailContent.body,
     subject: emailContent.subject,
